@@ -1,0 +1,358 @@
+.checkout-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.checkout-container h2 {
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.empty-checkout {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.empty-checkout h2 {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.empty-checkout button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Seller Restriction */
+.seller-restriction {
+    text-align: center;
+    padding: 100px 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.restriction-icon {
+    font-size: 6rem;
+    margin-bottom: 20px;
+}
+
+.seller-restriction h2 {
+    font-size: 2rem;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+}
+
+.seller-restriction p {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.restriction-hint {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.link-text {
+    color: #667eea;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.link-text:hover {
+    color: #764ba2;
+}
+
+.go-dashboard-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 20px;
+}
+
+.go-dashboard-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.checkout-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+.checkout-form {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-form h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.error-message {
+    background: #fee;
+    color: #c33;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.place-order-btn {
+    width: 100%;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.place-order-btn:hover:not(:disabled) {
+    background: #45a049;
+}
+
+.place-order-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.order-summary {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+}
+
+.order-summary h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.summary-items {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.summary-totals {
+    margin-top: 20px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.summary-row.total {
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: none;
+    margin-top: 10px;
+    color: #4CAF50;
+}
+
+/* Payment Details */
+.payment-details {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0;
+}
+
+.payment-details h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 16px;
+}
+
+.payment-details small {
+    display: block;
+    margin-top: 5px;
+    color: #666;
+    font-size: 12px;
+}
+
+/* Success Modal */
+.success-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.success-modal {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.4s ease-out;
+}
+
+.success-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+    animation: scaleIn 0.5s ease-out;
+}
+
+.success-modal h2 {
+    color: #4CAF50;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.success-modal p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.order-id {
+    background: #f0f8f0;
+    color: #4CAF50;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 20px 0;
+    border: 2px solid #4CAF50;
+}
+
+.success-message {
+    color: #333;
+    font-weight: 500;
+}
+
+.redirect-text {
+    color: #999;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .checkout-content {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .success-modal {
+        padding: 30px 20px;
+    }
+}

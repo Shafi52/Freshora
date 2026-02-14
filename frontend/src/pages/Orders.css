@@ -1,0 +1,168 @@
+.orders-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.orders-container h2 {
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.empty-orders {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.empty-orders h2 {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.empty-orders p {
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.empty-orders button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.error {
+    text-align: center;
+    padding: 60px 20px;
+    color: #c33;
+}
+
+.error button {
+    margin-top: 15px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.order-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.order-id {
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 5px 0;
+}
+
+.order-date {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+.order-status {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.order-items {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+.order-footer {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.order-address {
+    font-size: 14px;
+}
+
+.order-address strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.order-address p {
+    margin: 3px 0;
+    color: #666;
+}
+
+.order-total {
+    text-align: right;
+}
+
+.order-total p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.payment-method {
+    font-size: 14px !important;
+    color: #666;
+}
+
+.cancel-btn {
+    background: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.cancel-btn:hover {
+    background: #d32f2f;
+}
+
+@media (max-width: 768px) {
+    .order-footer {
+        grid-template-columns: 1fr;
+    }
+
+    .order-total {
+        text-align: left;
+    }
+}

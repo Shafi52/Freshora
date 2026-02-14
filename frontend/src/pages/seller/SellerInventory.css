@@ -1,0 +1,253 @@
+.seller-inventory {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    background: #f5f7fa;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.page-header h1 {
+    color: #2c3e50;
+    font-size: 32px;
+    margin: 0;
+}
+
+.threshold-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.threshold-control label {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.threshold-control input {
+    padding: 8px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    width: 80px;
+    font-size: 14px;
+}
+
+.inventory-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.summary-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-left: 5px solid #667eea;
+}
+
+.summary-card.warning {
+    border-left-color: #ff9800;
+}
+
+.summary-card.danger {
+    border-left-color: #f44336;
+}
+
+.summary-card.success {
+    border-left-color: #4caf50;
+}
+
+.summary-icon {
+    font-size: 40px;
+}
+
+.summary-content h3 {
+    margin: 0 0 8px 0;
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.summary-number {
+    font-size: 32px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.inventory-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.inventory-tabs button {
+    padding: 12px 24px;
+    border: 2px solid #e0e0e0;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #666;
+    transition: all 0.3s;
+}
+
+.inventory-tabs button:hover {
+    border-color: #667eea;
+    color: #667eea;
+}
+
+.inventory-tabs button.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: #667eea;
+}
+
+.inventory-content {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.inventory-table th,
+.inventory-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.inventory-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 14px;
+}
+
+.inventory-table td {
+    color: #666;
+    font-size: 14px;
+}
+
+.product-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.product-cell img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.product-cell strong {
+    color: #2c3e50;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.brand-text {
+    color: #999;
+    font-size: 12px;
+    margin: 0;
+}
+
+.stock-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.stock-badge.in-stock {
+    background: #e8f5e9;
+    color: #4caf50;
+}
+
+.stock-badge.low-stock {
+    background: #fff3e0;
+    color: #ff9800;
+}
+
+.stock-badge.out-of-stock {
+    background: #ffebee;
+    color: #f44336;
+}
+
+.btn-update {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+    transition: background 0.3s;
+}
+
+.btn-update:hover {
+    background: #764ba2;
+}
+
+.no-data {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+    font-size: 16px;
+}
+
+.loading {
+    text-align: center;
+    padding: 60px;
+    font-size: 18px;
+    color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .inventory-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .inventory-table {
+        font-size: 12px;
+    }
+
+    .inventory-table th,
+    .inventory-table td {
+        padding: 10px;
+    }
+
+    .product-cell {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .product-cell img {
+        width: 50px;
+        height: 50px;
+    }
+}

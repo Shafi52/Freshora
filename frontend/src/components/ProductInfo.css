@@ -1,0 +1,247 @@
+.product-info-section {
+    background: white;
+    border-radius: 16px;
+    padding: 0;
+    margin-top: 40px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+/* Accordion Item */
+.accordion-item {
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.accordion-item:last-of-type {
+    border-bottom: none;
+}
+
+/* Accordion Header */
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    cursor: pointer;
+    transition: background 0.2s;
+    user-select: none;
+}
+
+.accordion-header:hover {
+    background: #f8f9fa;
+}
+
+.accordion-header h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.accordion-icon {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #666;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+}
+
+/* Accordion Content */
+.accordion-content {
+    padding: 0 24px 24px 24px;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Product Description */
+.product-description {
+    color: #555;
+    line-height: 1.7;
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+}
+
+.product-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.product-features li {
+    padding: 8px 0;
+    padding-left: 24px;
+    position: relative;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.product-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #667eea;
+    font-weight: 700;
+}
+
+/* Info Grid */
+.info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.info-value {
+    color: #1a1a1a;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-align: right;
+}
+
+/* More Information Section */
+.more-info-section h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 16px;
+}
+
+.category-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.category-link {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.category-link:hover {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.storage-info {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e8e8e8;
+}
+
+.storage-info p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+/* Related Search Section */
+.related-search-section {
+    padding: 24px;
+    background: #f8f9fa;
+    border-top: 1px solid #e8e8e8;
+}
+
+.related-search-section h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 16px;
+}
+
+.related-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.related-tag {
+    display: inline-block;
+    padding: 8px 16px;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #667eea;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.related-tag:hover {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .accordion-header {
+        padding: 16px 20px;
+    }
+
+    .accordion-header h3 {
+        font-size: 1rem;
+    }
+
+    .accordion-content {
+        padding: 0 20px 20px 20px;
+    }
+
+    .info-row {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .info-value {
+        text-align: left;
+    }
+
+    .related-search-section {
+        padding: 20px;
+    }
+}
