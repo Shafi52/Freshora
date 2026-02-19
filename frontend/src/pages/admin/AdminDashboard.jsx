@@ -174,10 +174,10 @@ const AdminDashboard = () => {
                         <p>View and update order status</p>
                     </Link>
 
-                    <Link to="/admin/reports" className="management-card">
-                        <div className="management-icon">📈</div>
-                        <h3>Reports & Analytics</h3>
-                        <p>View detailed sales reports</p>
+                    <Link to="/admin/analytics" className="management-card">
+                        <div className="management-icon">📊</div>
+                        <h3>Analytics</h3>
+                        <p>View detailed reports</p>
                     </Link>
                 </div>
             </div>
@@ -200,7 +200,7 @@ const AdminDashboard = () => {
                             {stats.recentOrders.map((order) => (
                                 <tr key={order._id}>
                                     <td>#{order._id.slice(-6)}</td>
-                                    <td>{order.user?.name || "N/A"}</td>
+                                    <td>{order.userId?.name || "N/A"}</td>
                                     <td>₹{order.totalPrice}</td>
                                     <td>
                                         <span className={`status-badge ${order.status.toLowerCase()}`}>
