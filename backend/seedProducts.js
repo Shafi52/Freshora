@@ -4,14 +4,14 @@ const Product = require("./models/Product");
 
 const products = [
     // Vegetables (8 products)
-
+    { name: "Fresh Tomatoes", description: "Ripe and juicy tomatoes, perfect for salads and cooking", price: 40, category: "Vegetables", brand: "FreshFarm", image: "https://images.unsplash.com/photo-1546470427-e26264be0b0d?w=400", stock: 150, unit: "kg" },
     { name: "Organic Carrots", description: "Crunchy and sweet organic carrots", price: 50, category: "Vegetables", brand: "OrganicPro", image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=400", stock: 120, unit: "kg" },
     { name: "Fresh Spinach", description: "Nutrient-rich fresh spinach leaves", price: 30, category: "Vegetables", brand: "GreenLeaf", image: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=400", stock: 100, unit: "kg" },
     { name: "Potatoes", description: "Fresh farm potatoes, versatile for all dishes", price: 25, category: "Vegetables", brand: "FreshFarm", image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=400", stock: 200, unit: "kg" },
-
+    { name: "Onions", description: "Fresh red onions, essential for cooking", price: 35, category: "Vegetables", brand: "FreshFarm", image: "https://images.unsplash.com/photo-1587049352846-4a222e784720?w=400", stock: 180, unit: "kg" },
     { name: "Bell Peppers", description: "Colorful bell peppers, rich in vitamins", price: 80, category: "Vegetables", brand: "GreenLeaf", image: "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=400", stock: 90, unit: "kg" },
     { name: "Broccoli", description: "Fresh green broccoli, packed with nutrients", price: 60, category: "Vegetables", brand: "OrganicPro", image: "https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?w=400", stock: 75, unit: "kg" },
-
+    { name: "Cauliflower", description: "Fresh white cauliflower", price: 45, category: "Vegetables", brand: "FreshFarm", image: "https://images.unsplash.com/photo-1568584711271-61dd5c7e7f8c?w=400", stock: 85, unit: "kg" },
     { name: "Cucumber", description: "Fresh green cucumber", price: 30, category: "Vegetables", brand: "FreshFarm", image: "https://images.unsplash.com/photo-1604977042946-1eecc30f269e?w=400", stock: 100, unit: "kg" },
     { name: "Lettuce", description: "Crisp iceberg lettuce", price: 40, category: "Vegetables", brand: "GreenLeaf", image: "https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?w=400", stock: 80, unit: "piece" },
 
@@ -20,9 +20,9 @@ const products = [
     { name: "Bananas", description: "Ripe yellow bananas, rich in potassium", price: 50, category: "Fruits", brand: "TropicalFresh", image: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400", stock: 200, unit: "dozen" },
     { name: "Oranges", description: "Juicy oranges packed with Vitamin C", price: 80, category: "Fruits", brand: "CitrusFresh", image: "https://images.unsplash.com/photo-1547514701-42782101795e?w=400", stock: 130, unit: "kg" },
     { name: "Strawberries", description: "Sweet and fresh strawberries", price: 200, category: "Fruits", brand: "BerryBest", image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=400", stock: 60, unit: "kg" },
-
+    { name: "Grapes", description: "Seedless green grapes", price: 100, category: "Fruits", brand: "FruitKing", image: "https://images.unsplash.com/photo-1599819177423-7c4e71099e4c?w=400", stock: 80, unit: "kg" },
     { name: "Mangoes", description: "Sweet and juicy mangoes", price: 150, category: "Fruits", brand: "TropicalFresh", image: "https://images.unsplash.com/photo-1553279768-865429fa0078?w=400", stock: 100, unit: "kg" },
-
+    { name: "Watermelon", description: "Fresh and juicy watermelon", price: 30, category: "Fruits", brand: "FruitKing", image: "https://images.unsplash.com/photo-1587049352846-4a222e784720?w=400", stock: 50, unit: "piece" },
     { name: "Pineapple", description: "Sweet tropical pineapple", price: 60, category: "Fruits", brand: "TropicalFresh", image: "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?w=400", stock: 70, unit: "piece" },
     { name: "Papaya", description: "Ripe sweet papaya", price: 40, category: "Fruits", brand: "TropicalFresh", image: "https://images.unsplash.com/photo-1617112848923-cc2234396a8d?w=400", stock: 70, unit: "kg" },
     { name: "Pomegranate", description: "Juicy pomegranate", price: 180, category: "Fruits", brand: "FruitKing", image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=400", stock: 60, unit: "kg" },
@@ -50,7 +50,8 @@ const products = [
     { name: "Coffee Beans", description: "Arabica coffee beans", price: 600, category: "Beverages", brand: "Nescafe", image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400", stock: 80, unit: "kg" },
     { name: "Mineral Water", description: "Pure mineral water", price: 20, category: "Beverages", brand: "Bisleri", image: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=400", stock: 300, unit: "l" },
     { name: "Coca Cola", description: "Refreshing cola drink", price: 40, category: "Beverages", brand: "Coca-Cola", image: "https://images.unsplash.com/photo-1554866585-cd94860890b7?w=400", stock: 200, unit: "l" },
-
+    { name: "Energy Drink", description: "Red Bull energy drink", price: 120, category: "Beverages", brand: "Red Bull", image: "https://images.unsplash.com/photo-1622543925917-763c34f4dbd6?w=400", stock: 150, unit: "piece" },
+    { name: "Lemonade", description: "Fresh lemonade", price: 60, category: "Beverages", brand: "Tropicana", image: "https://images.unsplash.com/photo-1523677011781-c91d1bbe2f9d?w=400", stock: 100, unit: "l" },
 
     // Snacks (5 products)
     { name: "Potato Chips", description: "Crispy salted potato chips", price: 20, category: "Snacks", brand: "Lays", image: "https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=400", stock: 200, unit: "pack" },
@@ -61,7 +62,8 @@ const products = [
 
     // Meat (3 products)
     { name: "Chicken Breast", description: "Fresh boneless chicken breast", price: 250, category: "Meat", brand: "Venky's", image: "https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400", stock: 80, unit: "kg" },
-
+    { name: "Mutton", description: "Fresh mutton cuts", price: 600, category: "Meat", brand: "FreshMeat", image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=400", stock: 50, unit: "kg" },
+    { name: "Chicken Sausages", description: "Smoked chicken sausages", price: 200, category: "Meat", brand: "Venky's", image: "https://images.unsplash.com/photo-1612927601601-6638404737ce?w=400", stock: 100, unit: "pack" },
 
     // Seafood (3 products)
     { name: "Fresh Salmon", description: "Premium Atlantic salmon", price: 800, category: "Seafood", brand: "SeaFresh", image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400", stock: 40, unit: "kg" },
@@ -69,7 +71,7 @@ const products = [
     { name: "Tuna", description: "Fresh tuna fish", price: 500, category: "Seafood", brand: "OceanCatch", image: "https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?w=400", stock: 50, unit: "kg" },
 
     // Frozen (5 products)
-
+    { name: "Frozen Peas", description: "Quick frozen green peas", price: 80, category: "Frozen", brand: "McCain", image: "https://images.unsplash.com/photo-1568584711271-61dd5c7e7f8c?w=400", stock: 120, unit: "kg" },
     { name: "Ice Cream", description: "Vanilla ice cream", price: 200, category: "Frozen", brand: "Amul", image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400", stock: 100, unit: "l" },
     { name: "Frozen Pizza", description: "Cheese burst pizza", price: 300, category: "Frozen", brand: "McCain", image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400", stock: 80, unit: "piece" },
     { name: "Frozen French Fries", description: "Crispy frozen french fries", price: 150, category: "Frozen", brand: "McCain", image: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=400", stock: 150, unit: "kg" },
