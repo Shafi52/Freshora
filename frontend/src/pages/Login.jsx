@@ -178,26 +178,7 @@ const Login = () => {
           </span>
         </p>
 
-        {/* Demo Credentials */}
-        {!isRegister && (
-          <div className="demo-credentials">
-            <p className="demo-title">Demo Accounts:</p>
-            <div className="demo-accounts">
-              <div className="demo-account">
-                <strong>👤 Customer:</strong>
-                <p>user@test.com / password123</p>
-              </div>
-              <div className="demo-account">
-                <strong>🏪 Seller:</strong>
-                <p>seller@test.com / password123</p>
-              </div>
-              <div className="demo-account">
-                <strong>👨‍💼 Admin:</strong>
-                <p>admin@test.com / password123</p>
-              </div>
-            </div>
-          </div>
-        )}
+
       </div>
     </div>
   );
