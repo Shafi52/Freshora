@@ -5,7 +5,6 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import SellerLayout from "./components/SellerLayout";
-import AdminLayout from "./components/AdminLayout";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import Cart from "./pages/Cart";
@@ -14,9 +13,6 @@ import Checkout from "./pages/Checkout";
 import Orders from "./pages/Orders";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import UserManagement from "./pages/admin/UserManagement";
-import AdminProducts from "./pages/admin/AdminProducts";
-import AdminOrders from "./pages/admin/AdminOrders";
-import AdminReports from "./pages/admin/AdminReports";
 import SellerDashboard from "./pages/seller/SellerDashboard";
 import SellerProducts from "./pages/seller/SellerProducts";
 import SellerOrders from "./pages/seller/SellerOrders";
@@ -75,21 +71,22 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            {/* Admin Routes - Wrapped in AdminLayout for sidebar & RBAC */}
             <Route
-              path="/admin"
+              path="/admin/dashboard"
               element={
                 <ProtectedRoute>
-                  <AdminLayout />
+                  <AdminDashboard />
                 </ProtectedRoute>
               }
-            >
-              <Route path="dashboard" element={<AdminDashboard />} />
-              <Route path="products" element={<AdminProducts />} />
-              <Route path="orders" element={<AdminOrders />} />
-              <Route path="users" element={<UserManagement />} />
-              <Route path="reports" element={<AdminReports />} />
-            </Route>
+            />
+            <Route
+              path="/admin/users"
+              element={
+                <ProtectedRoute>
+                  <UserManagement />
+                </ProtectedRoute>
+              }
+            />
             {/* Seller Routes - Wrapped in SellerLayout for RBAC */}
             <Route
               path="/seller"

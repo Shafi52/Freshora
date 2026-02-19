@@ -16,7 +16,6 @@ const Products = () => {
   const [sortBy, setSortBy] = useState("default");
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(true);
-  const [sellerStores, setSellerStores] = useState([]);
   const { addToCart } = useCart();
   const { user } = useAuth();
   const navigate = useNavigate();
@@ -26,25 +25,12 @@ const Products = () => {
 
   const categories = ["All", "Vegetables", "Fruits", "Dairy", "Bakery", "Beverages", "Snacks", "Meat", "Seafood", "Frozen", "Other"];
 
-  // Get unique brands from products + seller store names (deduplicated)
-  const productBrands = products.filter(p => p.brand).map(p => p.brand);
-  const allBrandNames = [...new Set([...productBrands, ...sellerStores])].sort();
-  const brands = ["All", ...allBrandNames];
+  // Get unique brands from products
+  const brands = ["All", ...new Set(products.filter(p => p.brand).map(p => p.brand).sort())];
 
   useEffect(() => {
     fetchProducts();
-    fetchSellers();
   }, []);
-
-  const fetchSellers = async () => {
-    try {
-      const res = await API.get("/seller/public");
-      setSellerStores(res.data || []);
-    } catch {
-      // silently fail
-    }
-  };
-
 
   // Handle search and brand query from URL
   useEffect(() => {
