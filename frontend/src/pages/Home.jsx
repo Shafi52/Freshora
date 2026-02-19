@@ -8,10 +8,23 @@ const Home = () => {
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [sellerStores, setSellerStores] = useState([]);
+
+  const staticBrands = ["Amul", "Mother Dairy", "Britannia", "Parle", "Haldiram's", "ITC", "Nestle India", "Patanjali", "Dabur", "Tata Consumer"];
 
   useEffect(() => {
     fetchProducts();
+    fetchSellers();
   }, []);
+
+  const fetchSellers = async () => {
+    try {
+      const res = await API.get("/seller/public");
+      setSellerStores(res.data || []);
+    } catch {
+      // silently fail — static brands still show
+    }
+  };
 
   const fetchProducts = async () => {
     try {
@@ -203,16 +216,28 @@ const Home = () => {
           <div className="info-card">
             <h3>🇮🇳 Trusted Indian Brands</h3>
             <div className="brands-grid">
-              <div className="brand-badge">Amul</div>
-              <div className="brand-badge">Mother Dairy</div>
-              <div className="brand-badge">Britannia</div>
-              <div className="brand-badge">Parle</div>
-              <div className="brand-badge">Haldiram's</div>
-              <div className="brand-badge">ITC</div>
-              <div className="brand-badge">Nestle India</div>
-              <div className="brand-badge">Patanjali</div>
-              <div className="brand-badge">Dabur</div>
-              <div className="brand-badge">Tata Consumer</div>
+              {staticBrands.map((brand) => (
+                <div
+                  key={brand}
+                  className="brand-badge"
+                  onClick={() => navigate(`/products?brand=${encodeURIComponent(brand)}`)}
+                  style={{ cursor: "pointer" }}
+                  title={`Shop ${brand} products`}
+                >
+                  {brand}
+                </div>
+              ))}
+              {sellerStores.map((store) => (
+                <div
+                  key={store}
+                  className="brand-badge seller-brand-badge"
+                  onClick={() => navigate(`/products?brand=${encodeURIComponent(store)}`)}
+                  style={{ cursor: "pointer" }}
+                  title={`Visit ${store}'s shop`}
+                >
+                  🏪 {store}
+                </div>
+              ))}
             </div>
           </div>
         </div>

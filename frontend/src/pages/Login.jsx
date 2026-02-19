@@ -8,7 +8,9 @@ const Login = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("user"); // "user" or "seller"
+  const [role, setRole] = useState("user");
+  const [storeName, setStoreName] = useState("");
+  const [adminSecret, setAdminSecret] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -22,7 +24,7 @@ const Login = () => {
 
     let result;
     if (isRegister) {
-      result = await register(name, email, password, role);
+      result = await register(name, email, password, role, adminSecret, storeName);
     } else {
       result = await login(email, password);
     }
@@ -82,8 +84,43 @@ const Login = () => {
                     <span className="role-title">Sell Products</span>
                     <span className="role-desc">Manage your store</span>
                   </button>
+                  <button
+                    type="button"
+                    className={`role-btn ${role === "admin" ? "active" : ""}`}
+                    onClick={() => setRole("admin")}
+                  >
+                    <span className="role-icon">🛡️</span>
+                    <span className="role-title">Admin</span>
+                    <span className="role-desc">System administrator</span>
+                  </button>
                 </div>
               </div>
+
+              {/* Shop Name — only shown for Seller */}
+              {role === "seller" && (
+                <div className="form-group">
+                  <input
+                    type="text"
+                    placeholder="🏪 Shop / Store Name"
+                    value={storeName}
+                    onChange={(e) => setStoreName(e.target.value)}
+                    required
+                  />
+                </div>
+              )}
+
+              {/* Admin Secret Key — only shown when Admin is selected */}
+              {role === "admin" && (
+                <div className="form-group">
+                  <input
+                    type="password"
+                    placeholder="🛡️ Admin Secret Key"
+                    value={adminSecret}
+                    onChange={(e) => setAdminSecret(e.target.value)}
+                    required
+                  />
+                </div>
+              )}
 
               {/* Name Field */}
               <div className="form-group">
@@ -133,7 +170,9 @@ const Login = () => {
           <span onClick={() => {
             setIsRegister(!isRegister);
             setError("");
-            setRole("user"); // Reset role when switching
+            setRole("user");
+            setStoreName("");
+            setAdminSecret("");
           }}>
             {isRegister ? "Login here" : "Register here"}
           </span>
