@@ -1,0 +1,294 @@
+.admin-reports {
+    padding: 0;
+}
+
+.ar-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    gap: 16px;
+    color: #666;
+}
+
+.ar-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #e0e0e0;
+    border-top-color: #667eea;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.ar-error {
+    padding: 40px;
+    color: #f5576c;
+}
+
+.ar-header {
+    margin-bottom: 28px;
+}
+
+.ar-header h1 {
+    font-size: 1.8rem;
+    color: #1a1a2e;
+    margin: 0;
+}
+
+.ar-subtitle {
+    color: #888;
+    font-size: 0.9rem;
+    margin: 4px 0 0;
+}
+
+/* Summary Cards */
+.ar-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+@media (max-width: 900px) {
+    .ar-summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .ar-summary-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.ar-stat-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border-left: 5px solid transparent;
+}
+
+.ar-card-green {
+    border-left-color: #43e97b;
+}
+
+.ar-card-blue {
+    border-left-color: #667eea;
+}
+
+.ar-card-purple {
+    border-left-color: #764ba2;
+}
+
+.ar-card-red {
+    border-left-color: #f5576c;
+}
+
+.ar-stat-icon {
+    font-size: 2rem;
+}
+
+.ar-stat-label {
+    font-size: 0.78rem;
+    color: #888;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 0 4px;
+}
+
+.ar-stat-value {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #1a1a2e;
+    margin: 0;
+}
+
+/* Chart Card */
+.ar-chart-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    margin-bottom: 24px;
+}
+
+.ar-chart-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0 0 20px;
+}
+
+.ar-no-data {
+    text-align: center;
+    color: #bbb;
+    padding: 40px;
+    font-size: 0.9rem;
+}
+
+/* Tabs */
+.ar-chart-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.ar-tab {
+    padding: 8px 18px;
+    border-radius: 8px;
+    border: 1.5px solid #e0e0e0;
+    background: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #555;
+}
+
+.ar-tab.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+/* Two-col */
+.ar-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 0;
+}
+
+@media (max-width: 800px) {
+    .ar-two-col {
+        grid-template-columns: 1fr;
+    }
+}
+
+.ar-two-col .ar-chart-card {
+    margin-bottom: 0;
+}
+
+/* Status bars */
+.ar-status-table {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.ar-status-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ar-status-name {
+    width: 90px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #555;
+    flex-shrink: 0;
+}
+
+.ar-status-bar-wrapper {
+    flex: 1;
+    height: 12px;
+    background: #f0f0f0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.ar-status-bar {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 0.5s ease;
+    min-width: 4px;
+}
+
+.ar-status-count {
+    width: 28px;
+    text-align: right;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.ar-status-pending .ar-status-bar {
+    background: #ffa000;
+}
+
+.ar-status-processing .ar-status-bar {
+    background: #43e97b;
+}
+
+.ar-status-shipped .ar-status-bar {
+    background: #667eea;
+}
+
+.ar-status-delivered .ar-status-bar {
+    background: #764ba2;
+}
+
+.ar-status-cancelled .ar-status-bar {
+    background: #f5576c;
+}
+
+/* Top Products Table */
+.ar-top-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ar-top-table thead {
+    background: #f7f8ff;
+}
+
+.ar-top-table th {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #888;
+    font-weight: 700;
+}
+
+.ar-top-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.ar-top-table tbody tr:hover {
+    background: #fafbff;
+}
+
+.ar-top-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.ar-rank {
+    font-size: 1.2rem;
+}
+
+.ar-product-name {
+    font-weight: 600;
+    color: #1a1a2e;
+}
+
+.ar-revenue {
+    font-weight: 800;
+    color: #667eea;
+}

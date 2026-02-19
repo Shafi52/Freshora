@@ -1,7 +1,22 @@
 const router = require("express").Router();
+const auth = require("../middleware/auth");
 const Product = require("../models/Product");
 const Order = require("../models/Order");
+const User = require("../models/User");
 const seller = require("../middleware/seller");
+
+// ─── Public: Registered Seller Stores ───────────────────────────────────────
+// Returns store names of all registered sellers (public, no auth required)
+router.get("/public", async (req, res) => {
+    try {
+        const sellers = await User.find({ role: "seller", storeName: { $exists: true, $ne: "" } })
+            .select("storeName");
+        res.json(sellers.map(s => s.storeName));
+    } catch (error) {
+        res.status(500).json({ message: "Server error" });
+    }
+});
+// ─────────────────────────────────────────────────────────────────────────────
 
 // Get seller dashboard stats
 router.get("/dashboard", seller, async (req, res) => {
@@ -64,7 +79,7 @@ router.get("/analytics", seller, async (req, res) => {
                 productIds.some(id => id.toString() === item.product._id.toString())
             );
             const revenue = sellerItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            
+
             if (!salesByDate[date]) {
                 salesByDate[date] = { date, revenue: 0, orders: 0 };
             }
@@ -72,7 +87,7 @@ router.get("/analytics", seller, async (req, res) => {
             salesByDate[date].orders += 1;
         });
 
-        const salesData = Object.values(salesByDate).sort((a, b) => 
+        const salesData = Object.values(salesByDate).sort((a, b) =>
             new Date(a.date) - new Date(b.date)
         );
 
@@ -98,7 +113,7 @@ router.get("/products", seller, async (req, res) => {
 router.get("/inventory/low-stock", seller, async (req, res) => {
     try {
         const threshold = parseInt(req.query.threshold) || 10;
-        const products = await Product.find({ 
+        const products = await Product.find({
             seller: req.user.id,
             stock: { $lte: threshold, $gt: 0 }
         }).sort({ stock: 1 });
@@ -112,7 +127,7 @@ router.get("/inventory/low-stock", seller, async (req, res) => {
 // Get out of stock products
 router.get("/inventory/out-of-stock", seller, async (req, res) => {
     try {
-        const products = await Product.find({ 
+        const products = await Product.find({
             seller: req.user.id,
             stock: 0
         }).sort({ updatedAt: -1 });
@@ -133,16 +148,16 @@ router.get("/orders", seller, async (req, res) => {
         const orders = await Order.find({
             "items.product": { $in: productIds }
         })
-        .populate("user", "name email")
-        .populate("items.product")
-        .sort({ createdAt: -1 });
+            .populate("user", "name email")
+            .populate("items.product")
+            .sort({ createdAt: -1 });
 
         // Filter to only include seller's items in each order
         const sellerOrders = orders.map(order => {
             const sellerItems = order.items.filter(item =>
                 productIds.some(id => id.toString() === item.product._id.toString())
             );
-            
+
             return {
                 ...order.toObject(),
                 items: sellerItems,

@@ -7,16 +7,28 @@ const auth = require("../middleware/auth");
 // Register
 router.post("/register", async (req, res) => {
   try {
-    const { name, email, password, role } = req.body;
+    const { name, email, password, role, adminSecret, storeName } = req.body;
 
     // Validation
     if (!name || !email || !password) {
       return res.status(400).json({ message: "Please provide all required fields" });
     }
 
-    // Validate role if provided
+    // Validate role — admin requires a secret key
     const validRoles = ["user", "seller", "admin"];
-    const userRole = role && validRoles.includes(role) ? role : "user";
+    let userRole = role && validRoles.includes(role) ? role : "user";
+
+    if (userRole === "admin") {
+      const expectedSecret = process.env.ADMIN_SECRET || "freshora_admin_2024";
+      if (adminSecret !== expectedSecret) {
+        return res.status(403).json({ message: "Invalid admin secret key. Please contact the system administrator." });
+      }
+    }
+
+    // Seller must provide a store name
+    if (userRole === "seller" && !storeName?.trim()) {
+      return res.status(400).json({ message: "Sellers must provide a shop/store name" });
+    }
 
     // Check if user exists
     const existingUser = await User.findOne({ email });
@@ -30,6 +42,7 @@ router.post("/register", async (req, res) => {
       email,
       password,
       role: userRole,
+      ...(userRole === "seller" && { storeName: storeName.trim() }),
     });
 
     await user.save();
